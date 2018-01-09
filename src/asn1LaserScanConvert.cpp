@@ -9,12 +9,12 @@
  */
 
 #include "asn1LaserScanConvert.hpp"
-#include "asn1Matrix3dConvert.hpp"
-#include "asn1OrientationConvert.hpp"
-#include "asn1StringConvert.hpp"
-#include "asn1TimeConvert.hpp"
-#include "asn1Vector3dConvert.hpp"
-#include "asn1ArrayUtils.hpp"
+#include "base_support/asn1Matrix3dConvert.hpp"
+#include "base_support/asn1OrientationConvert.hpp"
+#include "base_support/asn1StringConvert.hpp"
+#include "base_support/asn1TimeConvert.hpp"
+#include "base_support/asn1Vector3dConvert.hpp"
+#include "base_support/asn1ArrayUtils.hpp"
 
 void LaserScan_fromAsn1(base::samples::LaserScan& result, const asn1SccLaserScan& asnVal)
 {

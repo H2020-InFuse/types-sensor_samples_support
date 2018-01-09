@@ -11,7 +11,7 @@
 #ifndef ASN1SONARBEAMCONVERT_HPP
 #define ASN1SONARBEAMCONVERT_HPP
 
-#include "asn1Types.h"
+#include "sensorSamplesTypes.h"
 #include "base/samples/SonarBeam.hpp"
 
 // Conversion functions

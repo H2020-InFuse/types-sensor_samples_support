@@ -11,7 +11,7 @@
 #ifndef ASN1LASERSCANCONVERT_HPP
 #define ASN1LASERSCANCONVERT_HPP
 
-#include "asn1Types.h"
+#include "sensorSamplesTypes.h"
 #include "base/samples/LaserScan.hpp"
 
 // Conversion functions

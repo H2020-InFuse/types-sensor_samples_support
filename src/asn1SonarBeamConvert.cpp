@@ -9,9 +9,9 @@
  */
 
 #include "asn1SonarBeamConvert.hpp"
-#include "asn1AngleConvert.hpp"
-#include "asn1TimeConvert.hpp"
-#include "asn1ArrayUtils.hpp"
+#include "base_support/asn1AngleConvert.hpp"
+#include "base_support/asn1TimeConvert.hpp"
+#include "base_support/asn1ArrayUtils.hpp"
 
 void SonarBeam_fromAsn1(base::samples::SonarBeam& result, const asn1SccSonarBeam& asnVal)
 {

@@ -11,7 +11,7 @@
 #ifndef ASN1IMUSENSORSCONVERT_HPP
 #define ASN1IMUSENSORSCONVERT_HPP
 
-#include "asn1Types.h"
+#include "sensorSamplesTypes.h"
 #include "base/samples/IMUSensors.hpp"
 
 // Conversion functions

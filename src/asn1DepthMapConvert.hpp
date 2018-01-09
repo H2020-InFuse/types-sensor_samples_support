@@ -11,7 +11,7 @@
 #ifndef ASN1DEPTHMAPCONVERT_HPP
 #define ASN1DEPTHMAPCONVERT_HPP
 
-#include "asn1Types.h"
+#include "sensorSamplesTypes.h"
 #include "base/samples/DepthMap.hpp"
 
 // Conversion functions

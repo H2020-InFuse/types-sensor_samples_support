@@ -11,7 +11,7 @@
 #ifndef ASN1POINTCLOUDCONVERT_HPP
 #define ASN1POINTCLOUDCONVERT_HPP
 
-#include "asn1Types.h"
+#include "sensorSamplesTypes.h"
 #include "base/samples/Pointcloud.hpp"
 
 // Conversion functions

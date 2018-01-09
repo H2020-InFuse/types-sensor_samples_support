@@ -9,8 +9,8 @@
  */
 
 #include "asn1IMUSensorsConvert.hpp"
-#include "asn1TimeConvert.hpp"
-#include "asn1Vector3dConvert.hpp"
+#include "base_support/asn1TimeConvert.hpp"
+#include "base_support/asn1Vector3dConvert.hpp"
 
 void IMUSensors_fromAsn1(base::samples::IMUSensors& result, const asn1SccIMUSensors& asnVal)
 {

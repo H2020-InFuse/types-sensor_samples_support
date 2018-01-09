@@ -11,7 +11,7 @@
 #ifndef ASN1SONARBEAMUTILS_HPP
 #define ASN1SONARBEAMUTILS_HPP
 
-#include "asn1Types.h"
+#include "sensorSamplesTypes.h"
 #include <stddef.h>
 
 #ifdef __cplusplus

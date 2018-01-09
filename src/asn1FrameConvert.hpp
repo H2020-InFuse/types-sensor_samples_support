@@ -11,7 +11,7 @@
 #ifndef ASN1FRAMECONVERT_HPP
 #define ASN1FRAMECONVERT_HPP
 
-#include "asn1Types.h"
+#include "sensorSamplesTypes.h"
 #include "base/samples/Frame.hpp"
 
 // Conversion functions

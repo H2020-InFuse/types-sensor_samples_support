@@ -9,10 +9,10 @@
  */
 
 #include "asn1PointcloudConvert.hpp"
-#include "asn1TimeConvert.hpp"
-#include "asn1Vector3dConvert.hpp"
-#include "asn1Vector4dConvert.hpp"
-#include "asn1ArrayUtils.hpp"
+#include "base_support/asn1TimeConvert.hpp"
+#include "base_support/asn1Vector3dConvert.hpp"
+#include "base_support/asn1Vector4dConvert.hpp"
+#include "base_support/asn1ArrayUtils.hpp"
 
 void Pointcloud_fromAsn1(base::samples::Pointcloud& result, const asn1SccPointcloud& asnVal)
 {
