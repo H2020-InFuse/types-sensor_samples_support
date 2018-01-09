@@ -95,25 +95,31 @@ set(HEADERS
     ia5stringConvert.hpp
     )
 
+# ASN.1 types are imported and compiled locally to the project, but not installed
+esrocos_asn1_types_package(asn1_types_support_local_types
+    OUTDIR asn1
+    IMPORT types/base types/drivers types/sensor_samples)
+    
 # Target library
 add_library(esrocos_types_support SHARED ${SOURCES})
 set_target_properties(esrocos_types_support PROPERTIES LINKER_LANGUAGE CXX)
 target_include_directories(esrocos_types_support PUBLIC 
-   ${EIGEN3_INCLUDE_DIRS}
-   ${ESROCOS_TYPES_BASE_INCLUDE_DIRS}
-   ${CMAKE_INSTALL_PREFIX}/include
-   )
+   PUBLIC ${EIGEN3_INCLUDE_DIRS}
+   PUBLIC ${CMAKE_INSTALL_PREFIX}/include
+   PRIVATE ${CMAKE_CURRENT_BINARY_DIR}
+)
+add_dependencies(esrocos_types_support asn1_types_support_local_types_generate_c)
 
 # Install headers, libraries and pkg-config file
 install(FILES ${HEADERS}
         DESTINATION ${CMAKE_INSTALL_PREFIX}/include/${CMAKE_PROJECT_NAME}
-        )
+)
         
 install(TARGETS esrocos_types_support
         DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
-        )
+)
 
 CONFIGURE_FILE("asn1_types_support.pc.in" "asn1_types_support.pc" @ONLY)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/asn1_types_support.pc
         DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig
-        )
+)
