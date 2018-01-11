@@ -25,6 +25,7 @@ set(HEADERS
     asn1SonarBeamConvert.hpp
     asn1SonarBeamUtils.h
     sensorSamplesTypes.h
+    sensorSamplesUtils.h
     )
 
 # ASN.1 types are imported and compiled locally to the project, but not installed

@@ -19,6 +19,7 @@
 // We distingush between the two cases by checking the include variable
 #ifndef _INC_DATAVIEW_UNIQ_H
 #ifndef GENERATED_ASN1_DATAVIEW_UNIQ_H
+#ifndef GENERATED_ASN1SCC_DATAVIEW_UNIQ_H
 #include "asn1/DepthMap.h"
 #include "asn1/DistanceImage.h"
 #include "asn1/Frame.h"
@@ -28,6 +29,7 @@
 #include "asn1/Sonar.h"
 #include "asn1/SonarBeam.h"
 #include "asn1/SonarScan.h"
+#endif //GENERATED_ASN1SCC_DATAVIEW_UNIQ_H
 #endif //GENERATED_ASN1_DATAVIEW_UNIQ_H
 #endif //_INC_DATAVIEW_UNIQ_H
 
