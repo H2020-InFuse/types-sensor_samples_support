@@ -2,9 +2,7 @@
 # Company: GMV Aerospace & Defence S.A.U.
 # Licence: GPLv2
 
-
-pkg_search_module(EIGEN3 REQUIRED eigen3)
-pkg_search_module(ESROCOS_TYPES_BASE_SUPPORT REQUIRED esrocos_types_base_support)
+set(LIB ${CMAKE_PROJECT_NAME})
 
 set(SOURCES
     asn1DepthMapConvert.cpp
@@ -29,30 +27,35 @@ set(HEADERS
     )
 
 # ASN.1 types are imported and compiled locally to the project, but not installed
-esrocos_asn1_types_package(local_types
+esrocos_asn1_types_package(${LIB}_local_types
     OUTDIR asn1
     IMPORT types/base types/sensor_samples)
     
+# Find libraries in ESROCOS' install directory
+link_directories(${CMAKE_INSTALL_PREFIX}/lib)
+
 # Target library
-add_library(esrocos_types_sensor_samples_support SHARED ${SOURCES})
-set_target_properties(esrocos_types_sensor_samples_support PROPERTIES LINKER_LANGUAGE CXX)
-target_include_directories(esrocos_types_sensor_samples_support PUBLIC 
-   PUBLIC ${EIGEN3_INCLUDE_DIRS}
-   PUBLIC ${ESROCOS_TYPES_BASE_SUPPORT_INCLUDE_DIRS}
+add_library(${LIB} SHARED ${SOURCES})
+set_target_properties(${LIB} PROPERTIES LINKER_LANGUAGE CXX)
+esrocos_pkgconfig_dependency(${LIB}
+    eigen3
+    base_support
+)
+target_include_directories(${LIB} PUBLIC 
    PRIVATE ${CMAKE_CURRENT_BINARY_DIR}
 )
-add_dependencies(esrocos_types_sensor_samples_support local_types_generate_c)
+add_dependencies(${LIB} ${LIB}_local_types)
 
 # Install headers, libraries and pkg-config file
 install(FILES ${HEADERS}
         DESTINATION ${CMAKE_INSTALL_PREFIX}/include/${CMAKE_PROJECT_NAME}
 )
         
-install(TARGETS esrocos_types_sensor_samples_support
+install(TARGETS ${LIB}
         DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
 )
 
-CONFIGURE_FILE("esrocos_types_sensor_samples_support.pc.in" "esrocos_types_sensor_samples_support.pc" @ONLY)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/esrocos_types_sensor_samples_support.pc
+CONFIGURE_FILE("${LIB}.pc.in" "${LIB}.pc" @ONLY)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${LIB}.pc
         DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig
 )
