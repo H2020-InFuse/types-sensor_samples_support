@@ -10,6 +10,8 @@ project(sensor_samples_support)
 
 include($ENV{ESROCOS_CMAKE})
 
+esrocos_init()
+
 add_subdirectory(src)
 
 
