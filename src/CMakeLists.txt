@@ -37,7 +37,7 @@ link_directories(${CMAKE_INSTALL_PREFIX}/lib)
 # Target library
 add_library(${LIB} SHARED ${SOURCES})
 set_target_properties(${LIB} PROPERTIES LINKER_LANGUAGE CXX)
-esrocos_pkgconfig_dependency(${LIB}
+esrocos_find_pkgconfig(${LIB}
     eigen3
     base_support
 )
