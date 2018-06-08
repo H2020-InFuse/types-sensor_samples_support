@@ -44,7 +44,7 @@ esrocos_pkgconfig_dependency(${LIB}
 target_include_directories(${LIB} PUBLIC 
    PRIVATE ${CMAKE_CURRENT_BINARY_DIR}
 )
-add_dependencies(${LIB} ${LIB}_local_types)
+add_dependencies(${LIB} ${LIB}_local_types_generate_c)
 
 # Install headers, libraries and pkg-config file
 install(FILES ${HEADERS}
