@@ -26,6 +26,11 @@ set(HEADERS
     sensorSamplesUtils.h
     )
 
+
+file(GLOB TYPE_SOURCES
+ ${${LIB}_BINARY_DIR}/asn1/*.c
+)
+
 # ASN.1 types are imported and compiled locally to the project, but not installed
 esrocos_asn1_types_package(${LIB}_local_types
     OUTDIR asn1
@@ -35,7 +40,7 @@ esrocos_asn1_types_package(${LIB}_local_types
 link_directories(${CMAKE_INSTALL_PREFIX}/lib)
 
 # Target library
-add_library(${LIB} SHARED ${SOURCES})
+add_library(${LIB} SHARED ${SOURCES} ${TYPE_SOURCES})
 set_target_properties(${LIB} PROPERTIES LINKER_LANGUAGE CXX)
 esrocos_pkgconfig_dependency(${LIB}
     eigen3
