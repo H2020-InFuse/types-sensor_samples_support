@@ -6,22 +6,22 @@ set(LIB ${CMAKE_PROJECT_NAME})
 
 set(SOURCES
     asn1DepthMapConvert.cpp
-    asn1FrameConvert.cpp
+    #asn1FrameConvert.cpp
     asn1IMUSensorsConvert.cpp
     asn1LaserScanConvert.cpp
     asn1PointcloudConvert.cpp
-    asn1SonarBeamConvert.cpp
-    asn1SonarBeamUtils.c
+    #asn1SonarBeamConvert.cpp
+    #asn1SonarBeamUtils.c
     )
     
 set(HEADERS
     asn1DepthMapConvert.hpp
-    asn1FrameConvert.hpp
+    #asn1FrameConvert.hpp
     asn1IMUSensorsConvert.hpp
     asn1LaserScanConvert.hpp
     asn1PointcloudConvert.hpp
-    asn1SonarBeamConvert.hpp
-    asn1SonarBeamUtils.h
+    #asn1SonarBeamConvert.hpp
+    #asn1SonarBeamUtils.h
     sensorSamplesTypes.h
     sensorSamplesUtils.h
     )
@@ -42,9 +42,9 @@ esrocos_pkgconfig_dependency(${LIB}
     base_support
 )
 target_include_directories(${LIB} PUBLIC 
-   PRIVATE ${CMAKE_CURRENT_BINARY_DIR}
+   PRIVATE ${CMAKE_BINARY_DIR}
 )
-add_dependencies(${LIB} ${LIB}_local_types)
+add_dependencies(${LIB} ${LIB}_local_types_generate_c)
 
 # Install headers, libraries and pkg-config file
 install(FILES ${HEADERS}
