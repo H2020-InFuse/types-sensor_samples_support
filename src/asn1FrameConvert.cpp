@@ -17,9 +17,9 @@
 void Frame_fromAsn1(base::samples::frame::Frame& result, const asn1SccFrame& asnVal)
 {
     // time
-    Time_fromAsn1(result.time, asnVal.frame_time);
+    Time_fromAsn1(result.time, asnVal.metadata.timeStamp);
     // received_time
-    Time_fromAsn1(result.received_time, asnVal.received_time);
+    Time_fromAsn1(result.received_time, asnVal.metadata.receivedTime);
     // image
     array_from_asn1_assign(result.image, asnVal.image.nCount, asnVal.image.arr);
     // attributes
