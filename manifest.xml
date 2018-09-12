@@ -11,5 +11,6 @@
     <depend package="base/types"/>
     <depend package="types/base"/>
     <depend package="types/base_support"/>
+    <depend package="types/sensor_samples"/>
     <depend package="eigen3"/>
 </package>
