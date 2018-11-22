@@ -37,8 +37,19 @@ void Pointcloud_fromAsn1(base::samples::Pointcloud& result, const asn1SccPointcl
     // colors
     array_from_asn1_func(result.colors, asnVal.data.colors.nCount, asnVal.data.colors.arr, Color_fromAsn1);
     //add intensities as alpha
+    bool has_only_intensity = result.colors.size() < asnVal.data.intensity.nCount;
+    if(has_only_intensity)
+    {
+        result.colors.resize(asnVal.data.intensity.nCount);
+    }
     for (int i = 0; i<asnVal.data.intensity.nCount;i++){
-        result.colors[i][3] = asnVal.data.intensity.arr[i];
+        if(has_only_intensity)
+        {
+            result.colors[i][0] = 1.0;
+            result.colors[i][1] = 1.0;
+            result.colors[i][2] = 1.0;
+        }
+        result.colors[i][3] = asnVal.data.intensity.arr[i] / 255.0;
     }
 }
 
